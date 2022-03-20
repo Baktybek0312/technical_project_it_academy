@@ -15,7 +15,7 @@ def habr_articles(request):
     response = requests.get(url,
                             headers=headers)
     soup = BeautifulSoup(response.text, 'html.parser')
-    article_list = soup.find_all('div', class_='tm-article-snippet')
+    article_list = soup.findAll('div', class_='tm-article-snippet')
     article_list_json = []
     for article in article_list:
         list_teg_p = []
@@ -28,4 +28,7 @@ def habr_articles(request):
         }
         article_list_json.append(new_article)
     return article_list_json
+
+
+
 
